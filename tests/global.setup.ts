@@ -1,7 +1,4 @@
-import {
-    test as setup,
-    expect,
-  } from "@playwright/test";
+import { Browser, chromium, Page, expect } from "@playwright/test";
 import { execSync } from 'child_process';
 
   function checkDockerService(serviceName) {
@@ -21,9 +18,12 @@ import { execSync } from 'child_process';
   }
 
 
-setup.describe.serial('Kong Gateway Setup and API Test', () => {
-  setup('start kong gateway UI', async ({ }) => {
+  export default async function globalSetup() {
     console.log('Starting Kong Gateway using docker-compose...');
+
+    const browser: Browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext({ locale: "en-US" });
+  const page: Page = await context.newPage();
     
     // start Docker Compose
     execSync('docker-compose -f ./docker-compose.yml up -d', { stdio: 'inherit' });
@@ -49,15 +49,12 @@ setup.describe.serial('Kong Gateway Setup and API Test', () => {
     }
 
     console.log('All services are healthy!');
-  });
-  
 
-  setup('Verify Kong gateway UI is accessible', async ({ page }) => {
     console.log('Testing Kong Gateway UI...');
     
     await page.goto('http://localhost:8002');
     await page.waitForTimeout(3000);
   
     await expect(page.getByText('Workspaces')).toBeVisible();
-  });
-})
+  };
+

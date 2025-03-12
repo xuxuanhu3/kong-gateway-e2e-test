@@ -12,8 +12,10 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  /* global setup */
+  globalSetup: require.resolve("./tests/global.setup"),
    /* global tesrdown */
-  // globalTeardown: require.resolve('./global-teardown'),
+  globalTeardown: require.resolve('./tests/global.teardown'),
 
   testDir: './tests',
   timeout: 300 * 1000,
@@ -56,7 +58,6 @@ export default defineConfig({
     {
       name: 'tear down',
       testMatch: /global\.teardown\.ts/,
-      dependencies: ['firefox'],
     },
 
     // {
