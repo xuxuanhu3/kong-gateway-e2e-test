@@ -56,6 +56,6 @@ import { gatewayEndpoint , dbServiceName, gatewayServiceName} from "./test-const
     await page.goto(gatewayEndpoint);
     await page.waitForTimeout(3000);
   
-    await expect(page.locator('span.float-left.title', { hasText: 'Workspaces' })).toBeVisible()
+    await expect(page.locator('span.float-left.title').filter({ hasText: 'Workspaces' }).first()).toBeVisible();
   };
 
