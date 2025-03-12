@@ -37,7 +37,7 @@ import { execSync } from 'child_process';
     let retries = 0;
 
     while (!allHealthy && retries < maxRetries) {
-        await new Promise(resolve => setTimeout(resolve, 10000)); // 等待 5 秒
+        await new Promise(resolve => setTimeout(resolve, 10000));
         allHealthy = services.every(service => checkDockerService(service));
 
         console.log(`Retrying... (${retries + 1}/${maxRetries})`);
