@@ -39,7 +39,7 @@ After test execution, If any test fails, playwright will automatically generates
 
 ### CICD
 
-To ensure ongoing quality assurance, Playwright tests should be integrated into the CI/CD pipeline.
+To ensure ongoing quality assurance, Playwright E2E tests is integrated into the CI/CD pipeline. Pls refer to the following link: [git actions](https://github.com/xuxuanhu3/kong-gateway-e2e-test/actions)
 
 1. **Continuous Integration**: Execute E2E tests automatically when new code is pushed to the main or master branch.
 
