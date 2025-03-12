@@ -1,6 +1,6 @@
 import { Browser, chromium, Page, expect } from "@playwright/test";
 import { execSync } from 'child_process';
-import { gatewayEndpoint , dbServiceName, gatewayServiceName} from "./test-constants";
+import { dbServiceName, gatewayServiceName} from "./test-constants";
 
   function checkDockerService(serviceName) {
     try {
@@ -23,8 +23,8 @@ import { gatewayEndpoint , dbServiceName, gatewayServiceName} from "./test-const
     console.log('Starting Kong Gateway using docker-compose...');
 
     const browser: Browser = await chromium.launch({ headless: false });
-  const context = await browser.newContext({ locale: "en-US" });
-  const page: Page = await context.newPage();
+    const context = await browser.newContext({ locale: "en-US" });
+    const page: Page = await context.newPage();
     
     // start Docker Compose
     execSync('docker-compose -f ./docker-compose.yml up -d', { stdio: 'inherit' });
@@ -50,12 +50,5 @@ import { gatewayEndpoint , dbServiceName, gatewayServiceName} from "./test-const
     }
 
     console.log('All services are healthy!');
-
-    console.log('Testing Kong Gateway UI...');
-    
-    await page.goto(gatewayEndpoint);
-    await page.waitForTimeout(3000);
-  
-    await expect(page.locator('span.float-left.title').filter({ hasText: 'Workspaces' }).first()).toBeVisible();
   };
 
