@@ -3,7 +3,7 @@ import { testServiceName, testRouteName, testRoutePath } from "../test-constants
 import { getServices } from "./help";
 
 test.describe.serial('Kong Gateway route Test', () => {
-  test.skip('Test Route page', async ({ page }) => {
+  test('Test Route page', async ({ page }) => {
     console.log('Testing Kong Gateway route page...');
       
     await page.goto('http://localhost:8002/manger/routes');
@@ -12,7 +12,7 @@ test.describe.serial('Kong Gateway route Test', () => {
     await expect(page.getByText('Routes')).toBeVisible();
   });
   
-  test.skip('Test route create', async ({ page, request }) => {
+  test('Test route create', async ({ page, request }) => {
     const services = await getServices(request)
     if (services.length > 0) {
       await page.getByText("Gateway Services").click();

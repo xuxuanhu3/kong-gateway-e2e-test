@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { testServiceName, testRouteName, testRoutePath, upstreamURL } from "../test-constants";
 
 test.describe.serial('Kong Gateway Service Test', () => {
-  test.skip('Test Service page', async ({ page }) => {
+  test('Test Service page', async ({ page }) => {
     console.log('Testing Kong Gateway Services page...');
       
     await page.goto('http://localhost:8002/manger/services');
@@ -11,7 +11,7 @@ test.describe.serial('Kong Gateway Service Test', () => {
     await expect(page.getByText('Gateway Services')).toBeVisible();
   });
   
-  test.skip('Test service create', async ({ page }) => {  
+  test('Test service create', async ({ page }) => {  
     await page.getByText("Gateway Services").click();
     await expect(page.getByText("Configure a New Gateway Service")).toBeVisible()
     await page.getByTestId("New Gateway Service").click();
@@ -34,7 +34,7 @@ test.describe.serial('Kong Gateway Service Test', () => {
     await expect(page.getByText(testServiceName)).toBeVisible();
   });
 
-  test.skip('Test add route for a service', async ({ page }) => {  
+  test('Test add route for a service', async ({ page }) => {  
     await page.getByRole("button", { name: "Add a Route" }).click();
     // fill route name
     await page.getByPlaceholder("enter a unique name").fill(testRouteName);
