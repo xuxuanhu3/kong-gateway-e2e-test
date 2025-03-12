@@ -55,6 +55,6 @@ import { execSync } from 'child_process';
     await page.goto('http://localhost:8002');
     await page.waitForTimeout(3000);
   
-    await expect(page.getByText('Workspaces')).toBeVisible();
+    await expect(page.locator('span.float-left.title', { hasText: 'Workspaces' })).toBeVisible()
   };
 
