@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.4'
 volumes:
   kong_db_data: {}
 networks:
@@ -36,7 +36,7 @@ services:
   #######################################
 
   kong-cp:
-    image: 'kong/kong-gateway'
+    image: 'kong/kong-gateway:3.4'
     container_name: kong-cp
     restart: on-failure
     command: sh -c "kong migrations bootstrap && kong start"
