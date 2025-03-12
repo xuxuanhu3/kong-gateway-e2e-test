@@ -34,9 +34,9 @@ npm run test:uitest # Tests run in headless mode using npm
 
 ### Test Report
 
-**Local Test**: After test execution, If any test fails, playwright will automatically generates an webpage report providing a comprehensive overview of test results, users can analyze the detailed report from it.
+1. **Local Test**: After test execution, If any test fails, playwright will automatically generates an webpage report providing a comprehensive overview of test results, users can analyze the detailed report from it.
 
-**GitAction**: The test results will be uploaded to  with git action upload-artifact@v4, the users can download it to local and view it. The more details could be found in the last step [actions/upload-artifact@v4](https://github.com/xuxuanhu3/kong-gateway-e2e-test/blob/54973a90e857512f287622f9862e3509bd75c5b3/.github/workflows/playwright.yml#L35)
+2. **GitAction**: The test results will be uploaded to  with git action upload-artifact@v4, the users can download it to local and view it. The more details could be found in the last step [actions/upload-artifact@v4](https://github.com/xuxuanhu3/kong-gateway-e2e-test/blob/54973a90e857512f287622f9862e3509bd75c5b3/.github/workflows/playwright.yml#L35)
 
 
 ### CICD
