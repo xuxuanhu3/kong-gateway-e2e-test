@@ -1,5 +1,6 @@
 import { Browser, chromium, Page, expect } from "@playwright/test";
 import { execSync } from 'child_process';
+import { gatewayEndpoint , dbServiceName, gatewayServiceName} from "./test-constants";
 
   function checkDockerService(serviceName) {
     try {
@@ -31,7 +32,7 @@ import { execSync } from 'child_process';
     console.log('Waiting for Kong Gateway services to be ready...');
 
     // check service healthy
-    const services = ['kong-ee-database', 'kong-cp'];
+    const services = [dbServiceName, gatewayServiceName];
     let allHealthy = false;
     const maxRetries = 10;
     let retries = 0;
@@ -52,7 +53,7 @@ import { execSync } from 'child_process';
 
     console.log('Testing Kong Gateway UI...');
     
-    await page.goto('http://localhost:8002');
+    await page.goto(gatewayEndpoint);
     await page.waitForTimeout(3000);
   
     await expect(page.locator('span.float-left.title', { hasText: 'Workspaces' })).toBeVisible()
