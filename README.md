@@ -53,7 +53,7 @@ To ensure ongoing quality assurance, Playwright E2E tests is integrated into the
 1. **Implement Authorization Tests**: Include authentication and authorization tests in the global setup
     to run test on dev env.
 
-2. **Add API tests**: Add API test suite.
+2. **Add API tests**: Add individual spec for all backend API test.
 
 3. **Optimize Test Execution**: Store browser state to reduce redundant operations and improve efficiency.
 
