@@ -6,9 +6,9 @@ test.describe.serial('Kong Gateway Service Test', () => {
     console.log('Testing Kong Gateway Services page...');
       
     await page.goto('http://localhost:8002/manager/services');
-    // await page.waitForTimeout(3000);
+    await page.waitForTimeout(3000);
   
-    await expect(page.getByText('Gateway Services')).toBeVisible();
+    await expect(page.getByTestId('kong-ui-app-layout-main').getByText('Gateway Services')).toBeVisible();
   });
   
   test.skip('Test service create', async ({ page }) => {  
