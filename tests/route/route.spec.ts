@@ -7,7 +7,6 @@ test.describe.serial('Kong Gateway route Test', () => {
     console.log('Testing Kong Gateway route page...');
       
     await page.goto('http://localhost:8002/manager/routes');
-    // await page.waitForTimeout(3000);
   
     await expect(page.getByTestId('kong-ui-app-layout-main').getByText('Routes')).toBeVisible();
   });
