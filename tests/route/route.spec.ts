@@ -3,11 +3,11 @@ import { testServiceName, testRouteName, testRoutePath } from "../test-constants
 import { getServices } from "./help";
 
 test.describe.serial('Kong Gateway route Test', () => {
-  test.skip('Test Route page', async ({ page }) => {
+  test('Test Route page', async ({ page }) => {
     console.log('Testing Kong Gateway route page...');
       
-    await page.goto('http://localhost:8002/manger/routes');
-    await page.waitForTimeout(3000);
+    await page.goto('http://localhost:8002/manager/routes');
+    // await page.waitForTimeout(3000);
   
     await expect(page.getByText('Routes')).toBeVisible();
   });

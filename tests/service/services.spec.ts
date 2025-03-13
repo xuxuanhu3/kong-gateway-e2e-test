@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 import { testServiceName, testRouteName, testRoutePath, upstreamURL } from "../test-constants";
 
 test.describe.serial('Kong Gateway Service Test', () => {
-  test.skip('Test Service page', async ({ page }) => {
+  test('Test Service page', async ({ page }) => {
     console.log('Testing Kong Gateway Services page...');
       
-    await page.goto('http://localhost:8002/manger/services');
-    await page.waitForTimeout(3000);
+    await page.goto('http://localhost:8002/manager/services');
+    // await page.waitForTimeout(3000);
   
     await expect(page.getByText('Gateway Services')).toBeVisible();
   });
